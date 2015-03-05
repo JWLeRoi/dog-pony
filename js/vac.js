@@ -93,7 +93,7 @@ $(function() {
 			}
 		},
 		bingImg : function(l) {
-			var theKey = ":/o13fyBB3Jrn73hzuJPL0KKBsCg/9P9xTbtkWh5w/kU";
+			var theKey = ":<key goes here>";
 			var encodedKey = btoa(theKey);
 			$.ajax({
 			  type: "GET",
@@ -117,7 +117,7 @@ $(function() {
 				url: searches.weatherUrl,
 				type: "GET",
 				dataType: "json",
-				data: {q:w,format:"json",num_of_days: 1,key:'597de5b751a0a77d824df150900fc' },
+				data: {q:w,format:"json",num_of_days: 1,key:'key here' },
 				success: function(data) {
 					weatherResults = data;
 					layout.processWeather();
