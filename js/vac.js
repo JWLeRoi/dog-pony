@@ -1,6 +1,4 @@
 $(function() {
-	// var url = 'https://api.datamarket.azure.com/Bing/Search/v1/Image?Query=%27tahiti%27'
-	// var bingAppKey = '/o13fyBB3Jrn73hzuJPL0KKBsCg/9P9xTbtkWh5w/kU';
 
 	var locations = [
 		{
@@ -17,7 +15,7 @@ $(function() {
 		{
 			"name":"New York City",
 			"terms":"New York City Skyline wallpaper",
-			"blurb": "<p>New York City has been described as the cultural capital of the world by the diplomatic consulates of Iceland and Latvia and by New York's Baruch College. A book containing a series of essays titled New York, culture capital of the world, 1940–1965 has also been published as showcased by the National Library of Australia. In describing New York, author Tom Wolfe said, 'Culture just seems to be in the air, like part of the weather.'</p><p>Numerous major American cultural movements began in the city, such as the Harlem Renaissance, which established the African-American literary canon in the United States.[355][356] The city was a center of jazz[357] in the 1940s, abstract expressionism in the 1950s, and the birthplace of hip hop in the 1970s. The city's punk and hardcore scenes were influential in the 1970s and 1980s, and the city has long had a flourishing scene for Jewish American literature.</p><p>The city is the birthplace of many cultural movements, including the Harlem Renaissance in literature and visual art; abstract expressionism (also known as the New York School) in painting; and hip hop,[150] punk, salsa, disco, freestyle, Tin Pan Alley, and Jazz in music. New York City has been considered the dance capital of the world.[361][362][363] The city is also widely celebrated in popular lore, frequently the setting for books, movies (see List of films set in New York City), and television programs. New York has also frequently been ranked the top fashion capital of the world on the annual list compiled by the Global Language Monitor;the city's fashion industry provides approximately 180,000 employees with $11 billion in annual wages.</p>"			
+			"blurb": "<p>New York City has been described as the cultural capital of the world by the diplomatic consulates of Iceland and Latvia and by New York's Baruch College. A book containing a series of essays titled New York, culture capital of the world, 1940–1965 has also been published as showcased by the National Library of Australia. In describing New York, author Tom Wolfe said, 'Culture just seems to be in the air, like part of the weather.'</p><p>Numerous major American cultural movements began in the city, such as the Harlem Renaissance, which established the African-American literary canon in the United States.[355][356] The city was a center of jazz[357] in the 1940s, abstract expressionism in the 1950s, and the birthplace of hip hop in the 1970s. The city's punk and hardcore scenes were influential in the 1970s and 1980s, and the city has long had a flourishing scene for Jewish American literature.</p><p>The city is the birthplace of many cultural movements, including the Harlem Renaissance in literature and visual art; abstract expressionism (also known as the New York School) in painting; and hip hop,[150] punk, salsa, disco, freestyle, Tin Pan Alley, and Jazz in music. New York City has been considered the dance capital of the world.[361][362][363] The city is also widely celebrated in popular lore, frequently the setting for books, movies (see List of films set in New York City), and television programs. New York has also frequently been ranked the top fashion capital of the world on the annual list compiled by the Global Language Monitor;the city's fashion industry provides approximately 180,000 employees with $11 billion in annual wages.</p>"
 		},
 		{
 			"name":"Paris",
@@ -26,19 +24,19 @@ $(function() {
 		},
 		{
 			"name":"London",
-			"terms":"London wallpaper",			
+			"terms":"London wallpaper",
 			"blurb": "<p>London is home to many museums, galleries, and other institutions, many of which are free of admission charges and are major tourist attractions as well as playing a research role. The first of these to be established was the British Museum in Bloomsbury, in 1753. Originally containing antiquities, natural history specimens and the national library, the museum now has 7 million artefacts from around the globe. In 1824 the National Gallery was founded to house the British national collection of Western paintings; this now occupies a prominent position in Trafalgar Square.</p><p>In the latter half of the 19th century the locale of South Kensington was developed as 'Albertopolis', a cultural and scientific quarter. Three major national museums are there: the Victoria and Albert Museum (for the applied arts), the Natural History Museum and the Science Museum. The National Portrait Gallery was founded in 1856 to house depictions of figures from British history; its holdings now comprise the world's most extensive collection of portraits.[267] The national gallery of British art is at Tate Britain, originally established as an annexe of the National Gallery in 1897. The Tate Gallery, as it was formerly known, also became a major centre for modern art; in 2000 this collection moved to Tate Modern, a new gallery housed in the former Bankside Power Station.</p>"
 		},
 		{
 			"name":"Dubai",
-			"terms":"Dubai wallpaper",			
+			"terms":"Dubai wallpaper",
 			"blurb": "<p>Dubai is located on the southeast coast of the Persian Gulf and is one of the seven emirates that make up the country. Abu Dhabi and Dubai are the only two emirates to have veto power over critical matters of national importance in the country's legislature. The city of Dubai is located on the emirate's northern coastline and heads up the Dubai-Sharjah-Ajman metropolitan area. Dubai is to host World Expo 2020.</p><p>Dubai has emerged as a global city and business hub of the Persian Gulf region. It is also a major transport hub for passengers and cargo. By the 1960s Dubai's economy was based on revenues from trade and, to a smaller extent, oil exploration concessions, but oil was not discovered until 1966. Oil revenue first started to flow in 1969.[7] Dubai's oil revenue helped accelerate the early development of the city, but its reserves are limited and production levels are low: today, less than 5% of the emirate's revenue comes from oil.[8] The emirate's Western-style model of business drives its economy with the main revenues now coming from tourism, aviation, real estate, and financial services.[9][10][11] Dubai has recently attracted world attention through many innovative large construction projects and sports events. The city has become symbolic for its skyscrapers and high-rise buildings, in particular the world's tallest building, the Burj Khalifa. Dubai has been criticised for human rights violations concerning the city's largely South Asian workforce. Dubai's property market experienced a major deterioration in 2008–2009 following the financial crisis of 2007–2008, but is making a gradual recovery with help from neighbouring emirates.</p>"
 		}
 	];
 
-	
 
-	
+
+
 
 	var menuOpen = function() {
 		$('nav').animate({ bottom: '0px' }, 1500, 'easeOutBounce')
@@ -46,7 +44,7 @@ $(function() {
 
 	setTimeout(menuOpen,2700);
 
-		
+
 
 	var bingResults = '';
 	var weatherResults = '';
@@ -64,7 +62,7 @@ $(function() {
 		} else {
 			layout.process();
 		}
-		
+
 	});
 
 	var searches = {
@@ -93,7 +91,7 @@ $(function() {
 			}
 		},
 		bingImg : function(l) {
-			var theKey = ":<key goes here>";
+			var theKey = api_keys.bing;
 			var encodedKey = btoa(theKey);
 			$.ajax({
 			  type: "GET",
@@ -106,9 +104,9 @@ $(function() {
 			  success: function(data) {
 			  	bingResults = data;
 			  	layout.processBing();
-			  }			  
+			  }
 			});
-		}, 
+		},
 		wikiSearch : function() {
 			// console.log('wiki');
 		},
@@ -117,14 +115,14 @@ $(function() {
 				url: searches.weatherUrl,
 				type: "GET",
 				dataType: "json",
-				data: {q:w,format:"json",num_of_days: 1,key:'key here' },
+				data: {q:w,format:"json",num_of_days: 1,key: api_keys.weather },
 				success: function(data) {
 					weatherResults = data;
 					layout.processWeather();
 				}
 			})
 		},
-		
+
 		setStatus : function(text) {
 			$('h1').text(text);
 		},
@@ -137,7 +135,7 @@ $(function() {
 		processBing : function() {
 			var index = Math.floor(Math.random() * 50) + 1
 			var url = bingResults.d.results[index].MediaUrl;
-			this.showBing(url);						
+			this.showBing(url);
 		},
 		showBing: function(url) {
 			$('.hero').hide().css(
